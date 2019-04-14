@@ -1,8 +1,8 @@
 package jums.server.domain.model
 
-final case class Fach(id: FachId, value: String)
+final case class Fach(id: FachId, bezeichnung: String)
 
-final case class Klasse(id: KlasseId, fachId: FachId)
+final case class Klasse(id: KlasseId, fachId: FachId, stufe: Integer)
 
 final case class KategorieName(value: String)
 final case class Testart(id: TestartId, value: String)
