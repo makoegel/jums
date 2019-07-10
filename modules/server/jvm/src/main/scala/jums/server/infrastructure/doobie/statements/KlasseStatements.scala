@@ -1,21 +1,15 @@
 package jums.server.infrastructure.doobie.statements
 
-/*CREATE TABLE KLASSE (
-    ID UUID PRIMARY KEY,
-    FACHID UUID,
-    STUFE BigDecimal
-);*/
-
-import doobie._
 import doobie.implicits._
-import jums.server.domain.model.{Kind, KindId, Klasse, KlasseId}
+import doobie.{Query0, Update0}
+import jums.server.domain.model._
 import jums.server.infrastructure.doobie.DoobieInstances
 
 object KlasseStatements extends DoobieInstances {
 
   def create(klasse: Klasse): Update0 =
     sql"""
-      INSERT INTO Klasse (id, fachid, stufe)
+      INSERT INTO KLASSE (id, fachid, stufe)
       VALUES (${klasse.id},
       ${klasse.fachId},
       ${klasse.stufe}
@@ -24,6 +18,6 @@ object KlasseStatements extends DoobieInstances {
   def findById(id: KlasseId): Query0[Klasse] =
     sql"""
        SELECT id, fachId, stufe
-       FROM Klasse WHERE id = $id
+       FROM KLASSE WHERE id = $id
       """.query
 }

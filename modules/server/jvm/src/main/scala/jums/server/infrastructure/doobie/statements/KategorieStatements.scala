@@ -2,7 +2,7 @@ package jums.server.infrastructure.doobie.statements
 
 import doobie._
 import doobie.implicits._
-import jums.server.domain.model.{Fach, FachId, Kategorie, KategorieId}
+import jums.server.domain.model.{Kategorie, KategorieId}
 import jums.server.infrastructure.doobie.DoobieInstances
 
 object KategorieStatements extends DoobieInstances {

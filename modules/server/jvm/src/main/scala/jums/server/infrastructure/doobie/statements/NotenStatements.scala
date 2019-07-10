@@ -2,7 +2,7 @@ package jums.server.infrastructure.doobie.statements
 
 import doobie._
 import doobie.implicits._
-import jums.server.domain.model.{Kind, KindId, Klasse, KlasseId, NoteId, Noten}
+import jums.server.domain.model.{NoteId, Noten}
 import jums.server.infrastructure.doobie.DoobieInstances
 
 object NotenStatements extends DoobieInstances {
