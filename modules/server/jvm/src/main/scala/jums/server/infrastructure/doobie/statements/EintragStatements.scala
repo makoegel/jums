@@ -6,21 +6,25 @@ import jums.server.domain.model.{Eintrag, EintragId}
 import jums.server.infrastructure.doobie.DoobieInstances
 
 object EintragStatements extends DoobieInstances {
-  def create(eintrag: Eintrag): Update0 =
+  def create(eintrag: Eintrag): Update0 = {
+    val klasse = BigDecimal(eintrag.klasse)
+    val testart = BigDecimal(eintrag.testart)
+    val note = BigDecimal(eintrag.note)
     sql"""
-      INSERT INTO EINTRAG (id, kindid, klasseid, fachid, kategorieid, testartid, noteid)
+      INSERT INTO EINTRAG (id, kind, klasse, fach, datum, testart, note)
       VALUES (${eintrag.id},
-      ${eintrag.kindId},
-      ${eintrag.klasseId},
-      ${eintrag.fachId},
-      ${eintrag.kategorieId},
-      ${eintrag.testartId},
-      ${eintrag.noteId})
+      ${eintrag.kind},
+      ${klasse},
+      ${eintrag.fach},
+      ${eintrag.datum},
+      ${testart},
+      ${note})
     """.update
+  }
 
   def findById(id: EintragId): Query0[Eintrag] =
     sql"""
-       SELECT id, kindid, klasseid, fachid,kategorieid, testartid, noteid 
+       SELECT id, kind, klasse, fach, datum, testart, note
        FROM eintrag WHERE id = $id
       """.query
 

@@ -27,7 +27,7 @@ object DbSpecification extends Specification with IOChecker {
     )
   lazy val dbConfig =
     Config.Db(
-      url = NonEmptyString("jdbc:h2:mem:;MODE=PostgreSQL"),
+      url = NonEmptyString("jdbc:h2:mem:;MODE=H2"),
       driver = NonEmptyString("org.h2.Driver"),
       user = "",
       password = ""
